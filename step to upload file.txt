@@ -1,0 +1,8 @@
+העלאת קצבים בגיט 
+1. קודם לערוך את הקובץ
+2. git add <file name> /  . (all)
+3. git commit -m "הודעה"
+4. git push
+
+
+
