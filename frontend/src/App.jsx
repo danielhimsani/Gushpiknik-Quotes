@@ -1,35 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// App.jsx
+import React from 'react';
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  const pageStyles = {
+    backgroundColor: 'orange', // Set background color to orange
+    height: '100vh', 
+    width: "100vw",
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+  };
+  const headingStyles = {
+    color: 'black', // Set text color to white
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '200px', // Set the width of the object
+    height: '10px', // Set the height of the object
+    padding: '0px',
+    fontSize: '20px', // Set the font size of the text
+    
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div style={pageStyles}>
+      <h1 style={headingStyles}>Gushpiknik-Quotes</h1>
+    </div>
+  );
+};
 
-export default App
+export default App;
