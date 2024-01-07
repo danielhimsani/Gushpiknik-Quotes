@@ -24,10 +24,18 @@ const App = () => {
   };
 
   return (
+<<<<<<< HEAD
     <div style={pageStyles}>
       <h1 style={headingStyles}>Gushpiknik-Quotes</h1>
     </div>
   );
 };
+=======
+    <div>
+      Hello world
+    </div>
+  )
+}
+>>>>>>> 82017ff6534988e9a166b8aa918e163fb68904b6
 
 export default App;
