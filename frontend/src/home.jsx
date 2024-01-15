@@ -1,6 +1,33 @@
 import React from 'react';
 
 import SimpleBottomNavigation from './linebar';
+import styled from '@emotion/styled';
+
+const HomeStyle = styled('div')`
+	background-color: orange;
+	position: absolute;
+	top: 0;
+	left: 0%;
+	display: flex;
+	width: 100vw;
+	height: 100vh;
+	flex-direction: column;
+`;
+
+const HeaderStyle = styled('div')`
+	display: flex;
+	flex-direction: row;
+	width: 1000%;
+	justify-content: space-between;
+	background-color: orangered;
+`;
+
+const PageTitle = styled('div')`
+	color: black;
+	font-size: 2em;
+	font-weight: bold;
+`;
+
 
 function Home()
  {
@@ -30,14 +57,25 @@ function Home()
   };
 
   return (
+
+	<HomeStyle>
+		<HeaderStyle>
+			<PageTitle>Gushpiknik quotes</PageTitle>
+
+		</HeaderStyle>
+		
+
+	</HomeStyle>
+
+	
     
-      <div style={background} >
-        <div style={contentStyle}>
-        <div style={headingStyles}>Gushpiknik-Quotes</div>
-          <SimpleBottomNavigation >
-          </SimpleBottomNavigation>
-        </div>
-      </div>
+    //   <div style={background} >
+    //     <div style={contentStyle}>
+    //     <div style={headingStyles}>Gushpiknik-Quotes</div>
+    //       <SimpleBottomNavigation >
+    //       </SimpleBottomNavigation>
+    //     </div>
+    //   </div>
      
   );
 }
