@@ -1,7 +1,14 @@
 import React from 'react';
 
-import SimpleBottomNavigation from './linebar';
+import {Routes , Route} from "react-router-dom" 
+import AboutUsPage from './Pages/AboutPage'
+import HomePageBody from './Pages/HomePage';
+import AddQuotePage from './Pages/AddQuotePage';
+import { useNavigate } from "react-router-dom";
+
+
 import styled from '@emotion/styled';
+import { Button } from '@mui/material';
 
 const HomeStyle = styled('div')`
 	background-color: orange;
@@ -17,66 +24,57 @@ const HomeStyle = styled('div')`
 const HeaderStyle = styled('div')`
 	display: flex;
 	flex-direction: row;
-	width: 1000%;
+	width: 100%;
 	justify-content: space-between;
 	background-color: orangered;
+`;
+
+const Tabs = styled('div')`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-right: 0.5em;
+	flex-direction: row;
+	gap: 0.5em;
 `;
 
 const PageTitle = styled('div')`
 	color: black;
 	font-size: 2em;
 	font-weight: bold;
+	margin-left: 0.5em;
+`;
+
+const PageBody = styled('div')`
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 `;
 
 
 function Home()
  {
-    
-    const background = {
-        display: 'flex',
-        height: '100vh', // 100% of the viewport height
-        background: 'orange', // Background color for the entire screen
-        height: '100vh', 
-        width: "100vw",
-        flexDirection: 'column',
-      };
-
-    const contentStyle = {
-        padding: '28px',
-        background: 'rgb(204, 102, 0)', // Background color for the content area
-        alignItems: 'flex-start'
-      };
-    const headingStyles = {
-        color: 'black', 
-        position: 'absolute',
-        backgroundColor: 'rgb(102,51, 0)',
-        top: 0,
-        left: 0,
-        fontSize: '37px',
-        fontWeight: 'bold'
-  };
-
+	const navigate = useNavigate();
   return (
-
 	<HomeStyle>
 		<HeaderStyle>
-			<PageTitle>Gushpiknik quotes</PageTitle>
-
+			<PageTitle onClick={() => navigate('/')} >Gushpiknik quotes</PageTitle>
+			<Tabs>
+				<Button variant='contained'  href="/about" >About us</Button>
+				<Button variant='contained'  href="/add-quote" >Add Quote</Button>
+			</Tabs>
 		</HeaderStyle>
-		
 
+		<PageBody>
+			<Routes>
+				<Route path="/" element={<HomePageBody/>} />
+				<Route path="/about"  element={<AboutUsPage/>} />
+				<Route path="/add-quote"  element={<AddQuotePage/>} />
+			</Routes>
+		</PageBody>
 	</HomeStyle>
-
-	
-    
-    //   <div style={background} >
-    //     <div style={contentStyle}>
-    //     <div style={headingStyles}>Gushpiknik-Quotes</div>
-    //       <SimpleBottomNavigation >
-    //       </SimpleBottomNavigation>
-    //     </div>
-    //   </div>
-     
   );
 }
 
