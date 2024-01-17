@@ -43,6 +43,7 @@ const PageTitle = styled('div')`
 	font-size: 2em;
 	font-weight: bold;
 	margin-left: 0.5em;
+	cursor: pointer;
 `;
 
 const PageBody = styled('div')`
