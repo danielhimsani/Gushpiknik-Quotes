@@ -130,3 +130,6 @@ dist
 .pnp.*
 
 *diagnostic.*
+data/WiredTiger*
+data/journal/
+data/sizeStorer*
