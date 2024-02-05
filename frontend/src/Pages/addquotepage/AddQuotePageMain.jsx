@@ -1,4 +1,5 @@
-import styled from "@emotion/styled"
+import styled from "@emotion/styled";
+import CustomizedSelects from "./textboxinput.jsx";
 
 const AddQuotePageStyled = styled('div')`
     display: flex;
@@ -7,10 +8,11 @@ const AddQuotePageStyled = styled('div')`
 `;
 
 
+
 export default function AddQuotePage () {
     return (
         <AddQuotePageStyled>
-            Add Quote Page :)
+        <CustomizedSelects></CustomizedSelects>
         </AddQuotePageStyled>
 
     )

@@ -1,9 +1,9 @@
 import React from 'react';
 
 import {Routes , Route} from "react-router-dom" 
-import AboutUsPage from './Pages/AboutPage'
+import AboutUsPage from './Pages/AboutPage';
 import HomePageBody from './Pages/HomePage';
-import AddQuotePage from './Pages/AddQuotePage';
+import AddQuotePage from './Pages/addquotepage/AddQuotePageMain';
 import { useNavigate } from "react-router-dom";
 
 
