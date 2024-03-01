@@ -10,7 +10,7 @@ const HomePageBodyStyled = styled('div')`
 export default function HomePageBody() {
     return (
         <HomePageBodyStyled>
-            HomePage 
+            HomePage1 
         </HomePageBodyStyled>
 
     )
