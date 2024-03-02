@@ -5,10 +5,9 @@ import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
 import Stack from '@mui/material/Stack';
 
-
 const AddQuotePageHeader = styled('div')`
     display: flex;
-    position: absolute; /* Make the component position absolute */
+    position: absolute; 
     top: 0;
     left: 40%;
     justify-content: center;
@@ -17,38 +16,48 @@ const AddQuotePageHeader = styled('div')`
     font-weight: bold;
     font-size: 30px;
     background-color: orangered;
+    
 `;
-const Stack1 = styled('Stack')`
+
+function Addingqoutes()
+{
+    const Stack1 = styled('Stack')`
     display: flex;  
     width: 300px;
     justify-content: space-between;
     `;
 
-  const ButtonSend = styled('Button')`
+    const ButtonSend = styled('Button')`
     color: white;
     background-color: black;
     padding: 10px;
     `;
- function IconLabelButtons() {
 
-  
-  return (
-    <Stack1>
-      <ButtonSend variant="contained" >
-        הוסף ציטוט
-      </ButtonSend>
-      <ButtonSend variant="contained">
-        שלח
-        <SendIcon />
-      </ButtonSend>
-    </Stack1>
-  );
+    function IconLabelButtons() {
+        return (
+          <Stack1>
+            <ButtonSend variant="contained" >
+              הוסף ציטוט
+            </ButtonSend>
+            <ButtonSend variant="contained">
+              שלח
+              <SendIcon />
+            </ButtonSend>
+          </Stack1>
+        );
+      }
+
+    return
+    (
+        
+        <IconLabelButtons />
+        
+    );
 }
 
 
-
-
-
+ 
+ 
 
 export default function AddQuotePage () {
     return (
@@ -56,8 +65,7 @@ export default function AddQuotePage () {
         <AddQuotePageHeader>
         Add Qoute 
         </AddQuotePageHeader>
-        <CustomizedSelects/>
-        <IconLabelButtons/>
+        <Addingqoutes />
         </div>
 
     )
