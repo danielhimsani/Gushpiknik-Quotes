@@ -6,24 +6,10 @@ import SendIcon from '@mui/icons-material/Send';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 
 
-const AddQuotePageHeader = styled('div')`
-    display: flex;
-    position: absolute; /* Make the component position absolute */
-    top: 0;
-    left: 40%;
-    justify-content: center;
-    align-items: top;
-    color: maroon;
-    font-weight: bold;
-    font-size: 30px;
-    background-color: orangered;
-`;
-
   const ButtonSend = styled('Button')`
     color: white;
     background-color: black;
     display: flex;
-    alignItems: center; 
     gap: 15px;
 `;
 
@@ -52,7 +38,23 @@ const Buttons = styled('div')`
 }
 
 
+const PageStyled = styled('div')`
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    gap: 1em;
+`;
 
+ const PageHeader = styled('div')`
+    font-size: 3em;
+     color: #FF9F1C;
+     font-weight: 500;
+     font-family: "American Typewriter",sans-serif;
+     margin-top: 1em;
+ `;
 
 
 
@@ -61,17 +63,14 @@ export default function AddQuotePage () {
     quoter: "test",
     quote: "test"
   }]);
-
-
-
     return (
-        <div>
-        <AddQuotePageHeader>
-        Add Qoute 
-        </AddQuotePageHeader>
-        {quotes.map((quote) => <CustomizedSelects key={"lol"} quote={quote} setQuotes={setQuotes} />)}
+        <PageStyled>
+            <PageHeader>Add Quote</PageHeader>
+            <div>
+                {quotes.map((quote) => <CustomizedSelects key={"lol"} quote={quote} setQuotes={setQuotes} />)}
+            </div>
         <IconLabelButtons quotes={quotes}  setQuotes={setQuotes} />
-        </div>
+        </PageStyled>
 
     )
 }

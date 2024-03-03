@@ -8,10 +8,13 @@ import { useNavigate } from "react-router-dom";
 
 
 import styled from '@emotion/styled';
-import { Button } from '@mui/material';
+import {Button, Divider} from '@mui/material';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+
+import {faQuoteLeft} from '@fortawesome/free-solid-svg-icons';
 
 const HomeStyle = styled('div')`
-	background-color: orange;
+	background-color: #FFFFFF;
 	position: absolute;
 	top: 0;
 	left: 0%;
@@ -26,7 +29,11 @@ const HeaderStyle = styled('div')`
 	flex-direction: row;
 	width: 100%;
 	justify-content: space-between;
-	background-color: orangered;
+	position: fixed;
+	background-color: #FFFFFF;
+	z-index: 999;
+	opacity: 0.75;
+	backdrop-filter: blur(10px);
 `;
 
 const Tabs = styled('div')`
@@ -39,11 +46,16 @@ const Tabs = styled('div')`
 `;
 
 const PageTitle = styled('div')`
-	color: black;
-	font-size: 2em;
+	font-size: 2.5em;
 	font-weight: bold;
 	margin-left: 0.5em;
 	cursor: pointer;
+	display: flex;
+	flex-direction: row;
+	gap: 0.5em;
+	align-items: center;
+	color: #FF9F1C;
+	font-family: "Roboto Thin";
 `;
 
 const PageBody = styled('div')`
@@ -54,6 +66,12 @@ const PageBody = styled('div')`
 	align-items: center;
 `;
 
+const TabButton = styled(Button)`
+	background: transparent;
+	color: #FF9F1C;
+	font-weight: 700;
+`;
+
 
 function Home()
  {
@@ -61,13 +79,15 @@ function Home()
   return (
 	<HomeStyle>
 		<HeaderStyle>
-			<PageTitle onClick={() => navigate('/')} >Gushpiknik quotes</PageTitle>
+			<PageTitle onClick={() => navigate('/')} >
+				<FontAwesomeIcon icon={faQuoteLeft} />
+			</PageTitle>
 			<Tabs>
-				<Button variant='contained'  href="/about" >About us</Button>
-				<Button variant='contained'  href="/add-quote" >Add Quote</Button>
+				<TabButton variant='text'  href="/about" >About us</TabButton>
+				<TabButton variant='text'  href="/add-quote" >Add Quote</TabButton>
 			</Tabs>
 		</HeaderStyle>
-
+		<Divider/>
 		<PageBody>
 			<Routes>
 				<Route path="/" element={<HomePageBody/>} />
