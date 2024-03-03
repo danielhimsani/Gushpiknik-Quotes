@@ -40,7 +40,7 @@ const BootstrapInput = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function CustomizedSelects() {
+export default function CustomizedSelects(quote, setQuote) {
   const [age, setAge] = React.useState('');
   const handleChange = (event) => {
     setAge(event.target.value);
@@ -49,7 +49,7 @@ export default function CustomizedSelects() {
     <div>
       <FormControl sx={{ m: 1 }} variant="standard">
         <InputLabel htmlFor="demo-customized-textbox">מה אמר</InputLabel>
-        <BootstrapInput id="demo-customized-textbox" />
+        <BootstrapInput id="demo-customized-textbox" >{quote}</BootstrapInput>
       </FormControl>
       <FormControl sx={{ m: 1 }} variant="standard">
         <InputLabel id="demo-customized-select-label">מי אמר</InputLabel>
