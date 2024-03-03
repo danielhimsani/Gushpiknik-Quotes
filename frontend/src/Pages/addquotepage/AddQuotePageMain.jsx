@@ -29,18 +29,21 @@ const AddQuotePageHeader = styled('div')`
     display: flex;
     alignItems: center; 
     gap: 15px;
-    `;
+`;
+
+const Buttons = styled('div')`
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-around;
+`;
   
-
-    
-
-    
 
  function IconLabelButtons() {
 
   
   return (
-    <Stack1>
+    <Buttons>
       <ButtonSend variant="contained" >
         הוסף ציטוט
         <AddCircleIcon />
@@ -50,7 +53,7 @@ const AddQuotePageHeader = styled('div')`
         <SendIcon />
       </ButtonSend>
       
-    </Stack1>
+    </Buttons>
   );
 }
 
