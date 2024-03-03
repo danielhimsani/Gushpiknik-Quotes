@@ -4,6 +4,9 @@ import * as React from 'react';
 import { useState } from "react";
 import SendIcon from '@mui/icons-material/Send';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
+import {Input, TextField} from "@mui/material";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
 
 
   const ButtonSend = styled('Button')`
@@ -46,6 +49,7 @@ const PageStyled = styled('div')`
     align-items: center;
     justify-content: start;
     gap: 1em;
+    margin-bottom: 2em;
 `;
 
  const PageHeader = styled('div')`
@@ -57,6 +61,35 @@ const PageStyled = styled('div')`
  `;
 
 
+ const QuoteAdderStyled = styled('div')`
+     display: flex;
+     width: 100%;
+     flex-direction: row-reverse;
+     justify-content: center;
+     gap: 3em;
+     direction: rtl;
+ `;
+
+
+
+ function QuoteAdderLine({quote, setQuotes, index}){
+     return <QuoteAdderStyled>
+         <TextField  variant={"standard"} label={"מה אמר"}  value={quote.quote} onChange={(value) => setQuotes()}/>
+         <Select  variant={"standard"} value={1}>
+             <MenuItem value={1} >LOL</MenuItem>
+         </Select>
+     </QuoteAdderStyled>
+ }
+
+ const QuotesListStyle = styled('div')`
+    display: flex;
+     flex-direction: column;
+     width: 100%;
+     height: 90%;
+     gap: 1em;
+     overflow: scroll;
+ `;
+
 
 export default function AddQuotePage () {
   const [quotes, setQuotes] = useState([{
@@ -66,9 +99,9 @@ export default function AddQuotePage () {
     return (
         <PageStyled>
             <PageHeader>Add Quote</PageHeader>
-            <div>
-                {quotes.map((quote) => <CustomizedSelects key={"lol"} quote={quote} setQuotes={setQuotes} />)}
-            </div>
+            <QuotesListStyle>
+                {quotes.map((quote, index) => <QuoteAdderLine key={index} quote={quote} setQuotes={setQuotes} index={index} />)}
+            </QuotesListStyle>
         <IconLabelButtons quotes={quotes}  setQuotes={setQuotes} />
         </PageStyled>
 
