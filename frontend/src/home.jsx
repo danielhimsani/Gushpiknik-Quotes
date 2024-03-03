@@ -17,10 +17,10 @@ const HomeStyle = styled('div')`
 	background-color: #FFFFFF;
 	position: absolute;
 	top: 0;
-	left: 0%;
+	left: 0;
 	display: flex;
-	width: 100vw;
-	height: 100vh;
+	width: 100%;
+	height: 100%;
 	flex-direction: column;
 `;
 
@@ -30,10 +30,13 @@ const HeaderStyle = styled('div')`
 	width: 100%;
 	justify-content: space-between;
 	position: fixed;
-	background-color: #FFFFFF;
 	z-index: 999;
-	opacity: 0.75;
-	backdrop-filter: blur(10px);
+	background: rgba(255, 255, 255, 0.47);
+	border-radius: 16px;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(1.9px);
+	-webkit-backdrop-filter: blur(1.9px);
+
 `;
 
 const Tabs = styled('div')`
