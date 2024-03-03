@@ -1,9 +1,8 @@
 import styled from "@emotion/styled";
 import CustomizedSelects from "./textboxinput.jsx";
 import * as React from 'react';
-import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
-import Stack from '@mui/material/Stack';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 
 
 const AddQuotePageHeader = styled('div')`
@@ -18,17 +17,25 @@ const AddQuotePageHeader = styled('div')`
     font-size: 30px;
     background-color: orangered;
 `;
-const Stack1 = styled('Stack')`
-    display: flex;  
-    width: 300px;
-    justify-content: space-between;
-    `;
+    const Stack1 = styled('Stack')`
+        display: flex;  
+        width: 300px;
+        justify-content: space-between;
+        `;
 
   const ButtonSend = styled('Button')`
     color: white;
     background-color: black;
-    padding: 10px;
+    display: flex;
+    alignItems: center; 
+    gap: 15px;
     `;
+  
+
+    
+
+    
+
  function IconLabelButtons() {
 
   
@@ -36,11 +43,13 @@ const Stack1 = styled('Stack')`
     <Stack1>
       <ButtonSend variant="contained" >
         הוסף ציטוט
+        <AddCircleIcon />
       </ButtonSend>
       <ButtonSend variant="contained">
         שלח
         <SendIcon />
       </ButtonSend>
+      
     </Stack1>
   );
 }
