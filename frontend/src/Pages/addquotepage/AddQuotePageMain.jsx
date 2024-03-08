@@ -4,41 +4,49 @@ import * as React from 'react';
 import { useState } from "react";
 import SendIcon from '@mui/icons-material/Send';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
-import {Input, TextField} from "@mui/material";
+import {Input, TextField,Button} from "@mui/material";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 
 
-  const ButtonSend = styled('Button')`
-    color: white;
-    background-color: black;
-    display: flex;
-    gap: 15px;
+
+const ButtonSend = styled(Button)`
+background: transparent;
+color: #FF9F1C;
+ display: flex;
+ gap: 15px;
+ font-weight: bold;
+ cursor: pointer;
+ 
+ font-weight: 700;
 `;
 
 const Buttons = styled('div')`
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  justify-content: space-around;
+display: flex;
+flex-direction: row;
+width: 100%;
+justify-content: space-around;
+
 `;
+
   
 
- function IconLabelButtons({quotes, setQuotes}) {
+function IconLabelButtons({quotes, setQuotes}) {
   return (
     <Buttons>
-      <ButtonSend variant="contained" onClick={() => setQuotes([...quotes, {}])}>
-        הוסף ציטוט
+      <ButtonSend variant='text' onClick={() => setQuotes([...quotes, {}])}>
+        Add
         <AddCircleIcon />
       </ButtonSend>
-      <ButtonSend variant="contained">
-        שלח
+      <ButtonSend variant='text'  href="/" >
+        Send 
         <SendIcon />
       </ButtonSend>
       
     </Buttons>
   );
 }
+
 
 
 const PageStyled = styled('div')`
