@@ -5,11 +5,10 @@ import AboutUsPage from './Pages/AboutPage';
 import HomePageBody from './Pages/HomePage';
 import AddQuotePage from './Pages/addquotepage/AddQuotePageMain';
 import { useNavigate } from "react-router-dom";
-
-
 import styled from '@emotion/styled';
 import {Button, Divider} from '@mui/material';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import Ilay from './Pages/addquotepage/AddQuotePageMain1';
 
 import {faQuoteLeft} from '@fortawesome/free-solid-svg-icons';
 
@@ -88,6 +87,8 @@ function Home()
 			<Tabs>
 				<TabButton variant='text'  href="/about" >About us</TabButton>
 				<TabButton variant='text'  href="/add-quote" >Add Quote</TabButton>
+				<TabButton variant='text'  href="/ilay" >For ilay</TabButton>
+
 			</Tabs>
 		</HeaderStyle>
 		<Divider/>
@@ -96,6 +97,7 @@ function Home()
 				<Route path="/" element={<HomePageBody/>} />
 				<Route path="/about"  element={<AboutUsPage/>} />
 				<Route path="/add-quote"  element={<AddQuotePage/>} />
+				<Route path="/ilay"  element={<Ilay />} />
 			</Routes>
 		</PageBody>
 	</HomeStyle>

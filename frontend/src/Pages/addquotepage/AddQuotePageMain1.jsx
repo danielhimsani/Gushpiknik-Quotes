@@ -1,72 +1,102 @@
 import styled from "@emotion/styled";
-import CustomizedSelects from "./textboxinput.jsx";
 import * as React from 'react';
-import Button from '@mui/material/Button';
+import { useState } from "react";
 import SendIcon from '@mui/icons-material/Send';
-import Stack from '@mui/material/Stack';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+import {Input, TextField,Button} from "@mui/material";
 
-const AddQuotePageHeader = styled('div')`
-    display: flex;
-    position: absolute; 
-    top: 0;
-    left: 40%;
-    justify-content: center;
-    align-items: top;
-    color: maroon;
-    font-weight: bold;
-    font-size: 30px;
-    background-color: orangered;
-    
+
+
+
+const ButtonSend = styled(Button)`
+background: transparent;
+color: #FF9F1C;
+ display: flex;
+ gap: 15px;
+ font-weight: bold;
+ cursor: pointer;
+ font-weight: 700;
 `;
 
-function Addingqoutes()
-{
-    const Stack1 = styled('Stack')`
-    display: flex;  
-    width: 300px;
-    justify-content: space-between;
-    `;
+const Buttons = styled('div')`
+display: flex;
+flex-direction: row;
+width: 100%;
+justify-content: space-around;
 
-    const ButtonSend = styled('Button')`
-    color: white;
-    background-color: black;
-    padding: 10px;
-    `;
+`;
 
-    function IconLabelButtons() {
-        return (
-          <Stack1>
-            <ButtonSend variant="contained" >
-              הוסף ציטוט
-            </ButtonSend>
-            <ButtonSend variant="contained">
-              שלח
-              <SendIcon />
-            </ButtonSend>
-          </Stack1>
-        );
-      }
+  
 
-    return
-    (
-        
-        <IconLabelButtons />
-        
-    );
+function IconLabelButtons() {
+  return (
+    <Buttons>
+      <ButtonSend variant='text'>
+        Add
+        <AddCircleIcon />
+      </ButtonSend>
+      <ButtonSend variant='text'  href="/" >
+        Send 
+        <SendIcon />
+      </ButtonSend>
+      
+    </Buttons>
+  );
 }
 
 
- 
- 
 
-export default function AddQuotePage () {
+const PageStyled = styled('div')`
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    gap: 1em;
+    margin-bottom: 2em;
+`;
+
+ const PageHeader = styled('div')`
+    font-size: 3em;
+     color: #FF9F1C;
+     font-weight: 500;
+     font-family: "American Typewriter",sans-serif;
+     margin-top: 1em;
+ `;
+
+
+ const QuoteAdderStyled = styled('div')`
+     display: flex;
+     width: 100%;
+     flex-direction: row-reverse;
+     justify-content: center;
+     gap: 3em;
+     direction: rtl;
+ `;
+
+
+
+ 
+ const QuotesListStyle = styled('div')`
+    display: flex;
+     flex-direction: column;
+     width: 100%;
+     height: 90%;
+     gap: 1em;
+     overflow: scroll;
+ `;
+
+
+export default function Ilay () {
+ 
     return (
-        <div>
-        <AddQuotePageHeader>
-        Add Qoute 
-        </AddQuotePageHeader>
-        <Addingqoutes />
-        </div>
+        <PageStyled>
+          
+         <PageHeader>Add Quote</PageHeader>
+         <QuotesListStyle />
+        <IconLabelButtons />
+        </PageStyled>
 
     )
 }
