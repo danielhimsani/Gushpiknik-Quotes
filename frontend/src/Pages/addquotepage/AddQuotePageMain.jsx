@@ -85,6 +85,7 @@ const PageStyled = styled('div')`
          <Select  variant={"standard"} value={1}>
              <MenuItem value={1} >LOL</MenuItem>
          </Select>
+
      </QuoteAdderStyled>
  }
 
@@ -98,19 +99,24 @@ const PageStyled = styled('div')`
  `;
 
 
+ function QuotesList({quotes, setQuotes}) {
+     return <QuotesListStyle>
+         {quotes.map((quote, index) => <QuoteAdderLine key={index} quote={quote} setQuotes={setQuotes} index={index} />)}
+     </QuotesListStyle>
+ }
+
+
 export default function AddQuotePage () {
   const [quotes, setQuotes] = useState([{
     quoter: "test",
     quote: "test"
   }]);
-    return (
-        <PageStyled>
+  
+    return <PageStyled>
             <PageHeader>Add Quote</PageHeader>
-            <QuotesListStyle>
-                {quotes.map((quote, index) => <QuoteAdderLine key={index} quote={quote} setQuotes={setQuotes} index={index} />)}
-            </QuotesListStyle>
+            <QuotesList quotes={quotes}  setQuotes={setQuotes}/>
         <IconLabelButtons quotes={quotes}  setQuotes={setQuotes} />
         </PageStyled>
 
-    )
+
 }

@@ -3,7 +3,8 @@ import * as React from 'react';
 import { useState } from "react";
 import SendIcon from '@mui/icons-material/Send';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
-import {Input, TextField,Button} from "@mui/material";
+import {Input, TextField, Button, Switch, Card} from "@mui/material";
+import {Swipe} from "@mui/icons-material";
 
 
 
@@ -52,9 +53,11 @@ const PageStyled = styled('div')`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: start;
+    justify-content: center;
     gap: 1em;
     margin-bottom: 2em;
+    margin-top: 10em;
+    
 `;
 
  const PageHeader = styled('div')`
@@ -88,14 +91,45 @@ const PageStyled = styled('div')`
  `;
 
 
+ const NameCard = styled(Card)`
+     padding: 1em;
+     font-size: 1.5em;
+ `;
+
+
 export default function Ilay () {
+    const [name, setName] = useState("");
+    const [visible, setVisible] = useState(true);
+
+    const [names, setNames] = useState([]);
+    const [currentName, setCurrentname] = useState("");
+
+
+
+
  
     return (
         <PageStyled>
-          
-         <PageHeader>Add Quote</PageHeader>
-         <QuotesListStyle />
-        <IconLabelButtons />
+            {names.map((n) => <NameCard key={n}>{n}</NameCard>)}
+            <TextField  value={currentName} onChange={(event) => setCurrentname(event.target.value)} placeholder={"Enter new name"}  ></TextField>
+            <Button variant={"contained"} onClick={() => {setNames([...names, currentName]);setCurrentname("");}}>Add name</Button>
+
+
+
+
+
+
+            {visible && <PageStyled>
+                <TextField  onChange={(l) => setName(l.target.value)} >Hello world</TextField>
+                <h1>Hello! your name is {name}</h1>
+                {name === "daniel" ? <div>Hey daniel</div> : <div>You are not daniel</div>}
+            </PageStyled>}
+            <Button variant={"contained"}  onClick={() => setVisible(!visible)} >Click to change visible</Button>
+            <Switch  checked={visible} onChange={(event) => setVisible(event.target.checked)}  />
+
+
+
+
         </PageStyled>
 
     )
