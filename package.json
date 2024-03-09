@@ -1,0 +1,15 @@
+{
+  "name": "gushpiknik-quotes",
+  "version": "1.0.0",
+  "description": "The ultimate quotes web application for the חברה",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"npm run dev:frontend\" \"npm run start:backend\"",
+    "dev:frontend": "cd frontend %% npm run dev",
+    "start:backend": "cd backend && node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
