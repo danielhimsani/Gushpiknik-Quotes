@@ -79,12 +79,13 @@ const PageStyled = styled('div')`
 
 
 
- function QuoteAdderLine({quote, setQuotes, index}){
+ function QuoteAdderLine({quote, setQuotes,}){
      return <QuoteAdderStyled>
          <TextField  variant={"standard"} label={"מה אמר"}  value={quote.quote} onChange={(value) => setQuotes()}/>
          <Select  variant={"standard"} value={1}>
              <MenuItem value={1} >LOL</MenuItem>
          </Select>
+         
 
      </QuoteAdderStyled>
  }
