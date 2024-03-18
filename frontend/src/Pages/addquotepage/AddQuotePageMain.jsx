@@ -6,6 +6,7 @@ import AddCircleIcon from '@mui/icons-material/AddCircle';
 import {Input, TextField,Button} from "@mui/material";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
+import DeleteIcon from '@mui/icons-material/Delete';
 
 
 
@@ -28,26 +29,6 @@ justify-content: space-around;
 
 `;
 
-  
-
-function IconLabelButtons({quotes, setQuotes}) {
-  return (
-    <Buttons>
-      <ButtonSend variant='text' onClick={() => setQuotes([...quotes, {}])}>
-        Add
-        <AddCircleIcon />
-      </ButtonSend>
-      <ButtonSend variant='text'  href="/" >
-        Send 
-        <SendIcon />
-      </ButtonSend>
-      
-    </Buttons>
-  );
-}
-
-
-
 const PageStyled = styled('div')`
     width: 100%;
     height: 100%;
@@ -67,7 +48,6 @@ const PageStyled = styled('div')`
      margin-top: 1em;
  `;
 
-
  const QuoteAdderStyled = styled('div')`
      display: flex;
      width: 100%;
@@ -76,19 +56,6 @@ const PageStyled = styled('div')`
      gap: 3em;
      direction: rtl;
  `;
-
-
-
- function QuoteAdderLine({quote, setQuotes,}){
-     return <QuoteAdderStyled>
-         <TextField  variant={"standard"} label={"מה אמר"}  value={quote.quote} onChange={(value) => setQuotes()}/>
-         <Select  variant={"standard"} value={1}>
-             <MenuItem value={1} >LOL</MenuItem>
-         </Select>
-         
-
-     </QuoteAdderStyled>
- }
 
  const QuotesListStyle = styled('div')`
     display: flex;
@@ -99,6 +66,62 @@ const PageStyled = styled('div')`
      overflow: scroll;
  `;
 
+ function QuoteAdderLine({quote, setQuotes,index}){
+
+const [inputValue ,SetInputValue] = useState("");
+const [selectedOption ,SetSelectedOption] = useState("");
+
+
+const handleInputChange = (event) => {
+  SetInputValue(event.target.value);
+};
+const handleOptionChange = (event) => {
+  SetSelectedOption(event.target.value);
+};
+
+const handleDelete = () => {
+  console.log("Deleting quote at index:", index);
+  setQuotes((quotes) => {
+    const updatedQuotes = quotes.filter((_, i) => i !== index);
+    return updatedQuotes;
+  });
+};
+
+
+
+const handleButtonClick = () => {
+  if (inputValue.trim() !== '') {
+    setQuotes((quotes) => {
+      const updatedQuotes = [...quotes];
+      updatedQuotes[index] = {
+        ...updatedQuotes[index],
+        [selectedOption]: inputValue
+      };
+      return updatedQuotes;
+    });
+    
+  }
+};
+
+
+     return <QuoteAdderStyled>
+      
+         <TextField  type="text"
+        value={inputValue}
+        onChange={handleInputChange}
+        placeholder="Enter text..."/>
+         <Select  variant={"standard"}  value={selectedOption} onChange={handleOptionChange}>
+             <MenuItem value="hemo" >hemo</MenuItem>
+             <MenuItem value="ronen" >ronen</MenuItem>
+         </Select>
+        
+         <ButtonSend  onClick={handleDelete}><DeleteIcon/></ButtonSend>
+         <div>{index}</div>
+         
+         
+
+     </QuoteAdderStyled>
+ }
 
  function QuotesList({quotes, setQuotes}) {
      return <QuotesListStyle>
@@ -107,17 +130,35 @@ const PageStyled = styled('div')`
  }
 
 
+ function IconLabelButtons({quotes, setQuotes}) {
+  return (
+    <Buttons>
+      <ButtonSend variant='text' onClick={() => setQuotes([...quotes, {}])}>
+        Add
+        <AddCircleIcon />
+      </ButtonSend>
+      <ButtonSend variant='text'  href="/" >
+        Send 
+        <SendIcon />
+      </ButtonSend>
+      
+    </Buttons>
+  );
+}
+
+
+
 export default function AddQuotePage () {
-  const [quotes, setQuotes] = useState([{
-    quoter: "test",
-    quote: "test"
-  }]);
+  const [quotes, setQuotes] = useState([{}]);
   
-    return <PageStyled>
+  
+    return( <PageStyled>
             <PageHeader>Add Quote</PageHeader>
-            <QuotesList quotes={quotes}  setQuotes={setQuotes}/>
+            <QuotesList quotes={quotes}  setQuotes={setQuotes} />
+            
         <IconLabelButtons quotes={quotes}  setQuotes={setQuotes} />
         </PageStyled>
 
+);
 
-}
+    }
