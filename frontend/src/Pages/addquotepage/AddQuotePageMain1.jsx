@@ -66,7 +66,7 @@ const QuotesListStyle = styled('div')`
     overflow: scroll;
 `;
 
-function QuoteAdderLine({quote, quotes, setQuotes,index}){
+function QuoteAdderLine({quote, quotes, setQuotes,index, updateQuotesGlobal}){
     console.log(quotes);
 
 
@@ -75,7 +75,7 @@ function QuoteAdderLine({quote, quotes, setQuotes,index}){
     const [selectedName ,SetSelectedName] = useState(Object.keys(quote)[0]);
 
     useEffect(() => {
-        updateQuotes();
+        handleUpdate();
     });
 
 
@@ -88,21 +88,16 @@ function QuoteAdderLine({quote, quotes, setQuotes,index}){
     };
 
     const handleDelete = () => {
-        console.log("Deleting quote at index:", index);
-        setQuotes((quotes) => {
-            const updatedQuotes = quotes.filter((_, i) => i !== index);
-            return updatedQuotes;
-        });
+        const updatedQuotes = quotes;
+        updatedQuotes.splice(index, 1);
+        setQuotes(updatedQuotes);
     };
 
-
-    const updateQuotes = () => {
-        const tmpQuotes = quotes;
-        const tmpObject = {};
-        tmpObject[selectedName] = inputQuote;
-        tmpQuotes[index] = tmpObject;
-        setQuotes(tmpQuotes);
-    }
+    const handleUpdate = () => {
+        const updatedQuotes = quotes;
+        updatedQuotes[index] = { [selectedName]: inputQuote };
+        setQuotes(updatedQuotes);
+    };
 
 
 
@@ -127,6 +122,7 @@ function QuoteAdderLine({quote, quotes, setQuotes,index}){
 }
 
 function QuotesList({quotes, setQuotes}) {
+
     return <QuotesListStyle>
         {quotes.map((quote, index) => <QuoteAdderLine key={index}  quotes={quotes} quote={quote} setQuotes={setQuotes} index={index} />)}
     </QuotesListStyle>
