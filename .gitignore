@@ -133,3 +133,4 @@ dist
 data/WiredTiger*
 data/journal/
 data/sizeStorer*
+data/*

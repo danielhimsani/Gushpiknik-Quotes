@@ -12,13 +12,13 @@ services:
     command: npm run dev
 
   backend:
-    image: node:21.4.0
+    image: python:3.10.0
     working_dir: /app
     volumes:
       - ./backend:/app
     ports:
       - "3000:3000"
-    command: npm run start
+    command: python server.py
 
   mongodb:
     image: mongo:latest

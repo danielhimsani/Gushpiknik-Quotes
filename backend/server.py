@@ -6,9 +6,11 @@ app = Flask(__name__)
 # Connect to the local MongoDB server
 client = MongoClient('mongodb://localhost:27017/')
 # Access or create a database
-db = client['mydatabase']
+db = client['local']
 # Access or create a collection
-collection = db['mycollection']
+collection = db['persons']
+
+print(collection.find({}))
 
 
 
