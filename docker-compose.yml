@@ -17,8 +17,9 @@ services:
     volumes:
       - ./backend:/app
     ports:
-      - "3000:3000"
-    command: python server.py
+      - "3000:80"
+    entrypoint: /app/entrypoint.sh
+    command: python /app/server.py
 
   mongodb:
     image: mongo:latest
